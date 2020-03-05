@@ -1,0 +1,29 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # username: <%= ENV["DATABASE_USER"] %>
+  # password: <%= ENV["GETSMART_DATABASE_PASSWORD"] %>
+  username: root
+  password: 123qwer!
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: GetSmart_development
+  # username: <%= ENV["DATABASE_USER"] %>
+  # password: <%= ENV["GETSMART_DATABASE_PASSWORD"] %>
+  username: root
+  password: 123qwer!
+
+test:
+  adapter: sqlite3
+  database: GetSmart_test
+
+production:
+  <<: *default
+  database: GetSmart_production
+  username: root
+  password: 123qwer!
+  # username: <%= ENV["DATABASE_USER"] %>
+  # password: <%= ENV['GETSMART_DATABASE_PASSWORD'] %>
